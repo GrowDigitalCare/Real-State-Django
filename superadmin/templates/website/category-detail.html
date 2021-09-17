@@ -1,0 +1,179 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+ 
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(../../static/website/images/background/bg-page-title.jpg);">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Title -->
+            	<div class="title-column col-md-7 col-sm-6 col-xs-12">
+                	<h1>Our {{data.slug}}</h1>
+                </div>
+                <!--Bread Crumb -->
+                <div class="breadcrumb-column col-md-5 col-sm-6 col-xs-12">
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">{{data.slug}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--Sidebar Page-->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                
+                
+                <!--Content Side-->	
+                <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                    
+                    <!--Blog Section / Classic View-->
+                    <section class="blog-news-section classic-view no-padd-bottom no-padd-top padd-right-40">
+                        
+                        {% for b in data.items %}
+                        <!--BLog News Column-->
+                        <div class="blog-news-column">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{% url 'project' b.slug %}"><img src="{{b.image.url}}" alt=""></a></figure>
+                                <div class="post-content">
+                                    <h3><a href="{% url 'project' b.slug %}">{{b.title}}</a></h3>
+                                    <div class="text">{{b.short_description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        <!--Pagination-->
+                        <div class="styled-pagination text-center">
+                            <ul class="pagination">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">Next</a></li>
+                            </ul>
+                        </div>
+                        
+                    </section>
+                
+                    
+                </div>
+                <!--Content Side-->
+                
+                <!--Sidebar-->	
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <aside class="sidebar">
+                        
+                        <!-- Recent Articles -->
+                        <div class="sidebar-widget recent-articles wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="sidebar-title"><h2>Categories</h2></div>
+                            
+                            <ul class="list">
+                                {% for c in category %}
+                                <li><a href="{% url 'category-detail' c.slug %}">{{c.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                            
+                        </div>
+                        
+                        {% comment %}
+                        <!-- Popular Posts -->
+                        <div class="sidebar-widget popular-posts wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="sidebar-title"><h2>Recent Posts</h2></div>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-1.jpg" alt=""></a></figure>
+                                <h4><a href="#">A Mortgage In Your 50s</a></h4>
+                                <div class="post-info">May 20, 2016 </div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-2.jpg" alt=""></a></figure>
+                                <h4><a href="#">House Market Indicators</a></h4>
+                                <div class="post-info">May 18, 2016 </div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-3.jpg" alt=""></a></figure>
+                                <h4><a href="#">Is Condo Life For You?</a></h4>
+                                <div class="post-info">May 16, 2016 </div>
+                            </article>
+                            
+                            
+                        </div>
+                        
+                        <!-- Popular Tags -->
+                        <div class="sidebar-widget popular-tags">
+                            <div class="sidebar-title"><h2>Popular tags</h2></div>
+                            
+                            <a href="#">Hostel</a>
+                            <a href="#">House</a>
+                            <a href="#">Rent</a>
+                            <a href="#">School</a>
+                            <a href="#">Commercial</a>
+                            <a href="#">Community</a>
+                        </div>
+                        
+                        
+                        <!-- Recent Tweets -->
+                        <div class="widget latest-tweets sidebar-widget">
+                            <div class="sidebar-title"><h2>Twitter Feeds</h2></div>
+                            
+                            <div class="tweets-carousel single-item-carousel">
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                    <div class="isolate-link"><a href="#">@template_path,</a></div>
+                                    <div class="tweet-content">
+                                        <p>Lawyer justice is best template now. Checkout this great update on <a href="#">http://t.co/AGPtTN8ccX</a></p>
+                                        <div class="time">2Hrs ago</div>
+                                    </div>
+                                </div>
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                    <div class="isolate-link"><a href="#">@template_path,</a></div>
+                                    <div class="tweet-content">
+                                        <p>Lawyer justice is best template now. Checkout this great update on <a href="#">http://t.co/AGPtTN8ccX</a></p>
+                                        <div class="time">2Hrs ago</div>
+                                    </div>
+                                </div>
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                    <div class="isolate-link"><a href="#">@template_path,</a></div>
+                                    <div class="tweet-content">
+                                        <p>Lawyer justice is best template now. Checkout this great update on <a href="#">http://t.co/AGPtTN8ccX</a></p>
+                                        <div class="time">2Hrs ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-bottom"><a href="#"><span class="fa fa-twitter"></span> Follow Us</a></div>
+                            
+                        </div>
+                        {% endcomment %}
+                                
+                    </aside>
+                
+                    
+                </div>
+                <!--Sidebar-->  
+                
+                      
+                
+            </div>
+        </div>
+    </div>
+    
+{%include 'website/include/footer.html'%}
+    

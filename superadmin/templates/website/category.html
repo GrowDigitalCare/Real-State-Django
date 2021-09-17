@@ -1,0 +1,88 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url(images/background/bg-page-title.jpg);">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Title -->
+            <div class="title-column col-md-7 col-sm-6 col-xs-12">
+                <h1>{{data.slug}}</h1>
+            </div>
+            <!--Bread Crumb -->
+            <div class="breadcrumb-column col-md-5 col-sm-6 col-xs-12">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Project Description</a></li>
+                    <li class="active">{{data.slug}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Gallery Single-->
+<div class="gallery-single-container">
+    <div class="auto-container">
+
+        <!--Upper Part-->
+        <div class="upper-part">
+            <div class="row clearfix">
+                <!--Image Column-->
+                <div class="column image-column col-md-8 col-sm-12 col-xs-12">
+                    <figure class="image-box"><img src="{{data.items.image.url}}" alt=""></figure>
+                </div>
+                <!--Specs Column-->
+                <div class="column specs-column col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="content">
+                            {% for c in data.category %}
+                            <div class="info-block">
+                                <div class="icon-box"><span class="flaticon-building"></span></div>
+                                <a href="{% url 'category-detail' c.slug %}"> <h3>{{c.title}}</h3></a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <!--Text Content-->
+        <div class="text-content">
+            <h2><strong>{{data.items.title}}</strong> </h2>
+        </div>
+
+        <!--Recommended Posts-->
+        <section class="recommended-posts">
+            <!-- <h2><strong>Recommended</strong> Posts</h2> -->
+            <div class="row clearfix">
+                <!--Post-->
+                {% for img in data.itemsimg %}
+                <div class="post default-portfolio-item col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <figure class="image-box"><img src="{{img.image.url}}" alt=""></figure>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+
+    </div>
+</div>
+{%include 'website/include/footer.html'%}

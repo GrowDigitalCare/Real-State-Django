@@ -1,0 +1,128 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url(../../static/website/images/background/bg-page-title.jpg);">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Title -->
+            <div class="title-column col-md-7 col-sm-6 col-xs-12">
+                <h1>Project Single</h1>
+            </div>
+            <!--Bread Crumb -->
+            <div class="breadcrumb-column col-md-5 col-sm-6 col-xs-12">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Project Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Sidebar Page-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+
+            <!--Content Side-->
+            <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12 padd-right-50">
+
+                <!--Blog Section / Classic View-->
+                <section class="blog-news-section classic-view blog-detail no-padd-bottom no-padd-top">
+
+                    <!--BLog News Column-->
+                    <div class="blog-news-column">
+                        <div class="inner-box">
+                            <figure class="image-box"><a href="#"><img src="{{data.items.image.url}}" alt=""></a>
+                            </figure>
+                            <div class="post-content">
+                                <!-- <div class="post-tags"><a href="#">Rent</a> / <a href="#">Agents</a> / <a href="#">Family</a></div> -->
+                                <h3><a href="{% url 'project' data.items.slug %}">{{data.items.title}} </a></h3>
+                                <div class="text">
+                                    <p>{{data.items.short_description}}</p>
+
+                                    <!--Two Column-->
+                                    <div class="two-column">
+                                        <div class="row clearfix">
+                                            <div class="column text-column col-sm-6 col-xs-12">
+                                                {{data.items.long_description | safe}}
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="column  col-sm-6 col-xs-12">
+                                                <iframe width="700" height="315" src="{{data.items.video_link}}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                        
+            </div>
+            <!--Content Side-->
+
+            <!--Sidebar-->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <aside class="sidebar">
+
+                    <!-- Recent Articles -->
+                    <div class="sidebar-widget recent-articles wow fadeInUp" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="sidebar-title">
+                            <h2>Categories</h2>
+                        </div>
+
+                        <ul class="list">
+                            {% for c in category %}
+                                <li><a href="{% url 'category-detail' c.slug %}">{{c.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+            <!--Sidebar-->
+
+        </div>
+        <section class="recommended-posts">
+            <div class="row clearfix">
+                <!--Post-->
+                {% for img in data.itemsimg %}
+                <div class="post default-portfolio-item col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <figure class="image-box"><img src="{{img.image.url}}" alt=""></figure>
+                    <br>
+                    </div>
+                </div>
+                {% endfor %}
+        
+                
+            </div>
+        </section>
+    </div>
+</div>
+
+{%include 'website/include/footer.html'%}

@@ -1,0 +1,656 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+<!--Main Slider-->
+
+<section class="main-slider style-one">
+
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                {% for s in data.slider %}
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+                    data-thumb="images/main-slider/1.jpg" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="{{s.image.url }}" alt="" data-bgposition="center top" data-bgfit="cover"
+                        data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption sfl sfb tp-resizeme" data-x="left" data-hoffset="15" data-y="center"
+                        data-voffset="0" data-speed="1500" data-start="500" data-easing="easeOutExpo"
+                        data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.3"
+                        data-endspeed="1200" data-endeasing="Power4.easeIn">
+                        <div class="bg-box text-left">
+                            <h2>{{s.title}}</h2>
+                            <h5>{{s.short_description}}</h5>
+                        </div>
+                    </div>
+
+
+                </li>
+                {% endfor %}
+
+            </ul>
+
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+</section>
+
+{% comment %}
+<!--Property Info Section-->
+<section class="property-info-sec">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Description Column-->
+            
+            <div class="desc-column col-md-12 col-sm-12 col-xs-12">
+                <!--Section Title-->
+                <div class="sec-title">
+                    <!-- <div class="subtitle-text">A few words about the projects</div> -->
+                    <h2><strong>Project</strong> Description</h2>
+                </div>
+
+                <div class="row clearfix">
+                    {% for c in data.category %}
+                    <!--Circular Image Column-->
+                    <div class="circular-image-column col-md-3 col-sm-3 col-xs-6">
+                        <figure class="image-box wow zoomInStable" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <a href="{% url 'category-single' c.slug %}" class="lightbox-image" title="Image Title Here">
+                                <img src="{{c.image.url}}" alt="">
+                            </a>
+                        </figure>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endcomment %}
+
+<section class="gallery-section bg-lightgrey">
+    <div class="auto-container">
+
+        <!--Section Title-->
+        <div class="sec-title text-center">
+            <!-- <div class="subtitle-text">Tour Of Our Projects</div> -->
+            <h2><strong>Checkout</strong> Categories</h2>
+        </div>
+
+        <!--Sortable Masonry-->
+        <div class="sortable-masonry mixed-gallery-section">
+
+            <!--Filter-->
+            <!-- <div class="filters text-center">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <li class="active filter" data-role="button" data-filter=".all"><span class="txt">All</span>
+                    </li>
+                    {% for c in data.category %}
+                    <li class="filter" data-role="button" data-filter=".{{c.slug}}"><span class="txt">{{c.title}}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div> -->
+
+
+            <div class="items-container clearfix">
+                {% for p in data.category %}
+
+                <!--Default Portfolio Item-->
+                <div class="col-md-4 col-sm-6 col-xs-12 default-portfolio-item masonry-item all {{p.category.slug}}">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{{p.image.url}}" alt="">
+                        </figure>
+                        <!--Overlay Box-->
+                        <div class="overlay-box">
+                            <div class="overlay-inner">
+                                <div class="content">
+                                    <h3><a href="{% url 'category-single' p.slug %}" class=" "
+                                            title="Open Gallery Popup">{{p.title}}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <!--End Sortable Masonry-->
+
+    </div>
+
+</section>
+
+
+<!--Property Details Section-->
+<section class="property-details">
+
+    <!--Image Column-->
+    <div class="image-column" style="background-image:url(../../static/website/images/Information/Bookingoffice.jpg);">
+        <div class="hidden-image"><img src="{% static 'website/images/Information/Bookingoffice.jpg' %}" alt=""></div>
+        <div class="dimensions-box wow fadeIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+        </div>
+    </div>
+
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Right Column-->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 right-column">
+                <div class="inner-box">
+                    <div  style="text-align: center;">
+                        <h2><strong>THE MOST </strong> PRESTIGIOUS & LUXURY APARTMENTS IN QUETTA </h2>
+                    </div>
+                    <!--Tabs Box-->
+                    <div class="tabs-box" style="text-align: justify;">
+
+                        <!--Tabs Content-->
+                        <div class="tab-content">
+
+                            <!--Tab / Active Tab-->
+                            <div class="tab active-tab" id="tab-one">
+                                <div class="text">
+                                    <p>This vertical community offers lavish spaces within every individual apartment, a space that offers the utmost comfort. Modern and luxurious design elements come together and offer a prestigious living to the user.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--End Right Column-->
+
+        </div>
+    </div>
+</section>
+
+
+<!--Gallery Section-->
+<section class="gallery-section bg-lightgrey">
+    <div class="auto-container">
+
+        <!--Section Title-->
+        <div class="sec-title text-center">
+            <div class="subtitle-text">Tour Of Our Projects</div>
+            <h2><strong>Checkout</strong> Projects</h2>
+        </div>
+
+        <!--Sortable Masonry-->
+        <div class="sortable-masonry mixed-gallery-section">
+
+            <!--Filter-->
+            <div class="filters text-center">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <li class="active filter" data-role="button" data-filter=".all"><span class="txt">All</span>
+                    </li>
+                    {% for c in data.category %}
+                    <li class="filter" data-role="button" data-filter=".{{c.slug}}"><span class="txt">{{c.title}}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <div class="items-container clearfix">
+                {% for p in data.project %}
+
+                <!--Default Portfolio Item-->
+                <div class="col-md-4 col-sm-6 col-xs-12 default-portfolio-item masonry-item all {{p.category.slug}}">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{{p.image.url}}" alt="">
+                        </figure>
+                        <!--Overlay Box-->
+                        <div class="overlay-box">
+                            <div class="overlay-inner">
+                                <div class="content">
+                                    <h3><a href="{% url 'project' p.slug %}" class=" "
+                                            title="Open Gallery Popup">{{p.title}}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <!--End Sortable Masonry-->
+
+    </div>
+
+</section>
+
+
+<!--Floor Plans Section-->
+{% comment %}
+<section class="floor-plans-section">
+    <div class="auto-container">
+
+        <!--Section Title-->
+        <div class="sec-title">
+            <h2><strong>Explore</strong> Floor Plans</h2>
+            <div class="subtitle-text">High quality city living without the pricing tag</div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <!--Side Links-->
+                <nav class="side-links">
+                    <ul class="links-nav">
+                        <li><a href="#" class="btn-toggle">Floor A</a>
+                            <!--Toggle Nav-->
+                            <ul class="toggle-nav collapsed">
+                                <li><a class="active" href="#bedrooms">Bed Rooms</a></li>
+                                <li><a href="#kitchens">Kitchens</a></li>
+                                <li><a href="#bathrooms">Bathrooms</a></li>
+                                <li><a href="#car-parkings">Car Parking</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="btn-toggle">Floor B</a>
+                            <!--Toggle Nav-->
+                            <ul class="toggle-nav">
+                                <li><a href="#bedroom">Bed Rooms</a></li>
+                                <li><a href="#kitchen">Kitchens</a></li>
+                                <li><a href="#bathroom">Bathrooms</a></li>
+                                <li><a href="#car-parking">Car Parking</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="btn-toggle">Explore View</a>
+                            <!--Toggle Nav-->
+                            <ul class="toggle-nav">
+                                <li><a href="#2d-view">2D View</a></li>
+                                <li><a href="#3d-view">3D View</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="col-md-10 col-sm-8 col-xs-12">
+                <!--Floors Content-->
+                <div class="floors-content">
+
+                    <!--Content Box / Collapsed-->
+                    <div class="content-box collapsed" id="bedrooms">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="kitchens">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="bathrooms">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="car-parkings">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="bedroom">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="bathroom">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="kitchen">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="car-parking">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="2d-view">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                    <!--Content Box-->
+                    <div class="content-box" id="3d-view">
+                        <figure class="image-box"><img src="{% static 'website/images/resource/floors-image.jpg' %}"
+                                alt=""></figure>
+                    </div>
+
+                </div>
+
+                <div class="property-info">
+                    <ul class="inline-list">
+                        <li><span class="icon flaticon-business-1"></span>2,583-ft<sup>2</sup></li>
+                        <li><span class="icon flaticon-double-king-size-bed"></span>2 - Bedrooms</li>
+                        <li><span class="icon flaticon-old"></span>1 - Kitchen</li>
+                        <li><span class="icon flaticon-buildings-1"></span>2 - Car Garage</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endcomment %}
+
+<!--Nearby Section-->
+<section class="nearby-section" style="background-image:url(images/parallax/image-1.jpg);">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Content Column-->
+            <div class="content-column col-md-7 col-sm-6 col-xs-12">
+                <h2>Project Master Plan</h2>
+                <!-- <h4>A Few Words About Locality</h4> -->
+                <div class="text">A master plan is a dynamic long-term planning document that provides a conceptual layout to guide future growth and development.</div>
+
+            </div>
+
+            <!--Map Column-->
+            <div class="map-column col-md-5 col-sm-6 col-xs-12">
+                <div class="circular-image-column col-md-3 col-sm-3 col-xs-6">
+                    <figure class="image-box wow zoomInStable" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <a href="{% static 'website/images/information/master_plan.jpeg' %}" class="lightbox-image"
+                            title="MasterPlan">
+                            <div class="map-outer wow rollIn" data-wow-duration="1500ms" data-wow-delay="0ms">
+                                <img src="{% static 'website/images/information/master_plan.jpeg' %}" width="500px"
+                                    height="500px" alt="">
+                            </div>
+                        </a>
+                    </figure>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!--Testimonials Section-->
+<section class="testimonials-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="subtitle-text">Tour Of Our Amenities</div>
+            <h2><strong>Checkout</strong> Amenities and Details</h2>
+        </div>
+
+        <div class="testimonials-carousel">
+            {% for b in data.blog %}
+
+            <!--Slide Item-->
+            <div class="slide-item" >
+                <div class="inner-box">
+                    <div class="quote-icon"><span class="fa fa-quote-right"></span></div>
+                    <div class="content">
+                        <img src="{{b.image.url}}" alt="">
+                        <br>
+                        <!-- <div class="info clearfix">
+                            <div class="author-thumb">
+                            </div>
+                            <div class="author-title">_________________________________</div>
+                        </div> -->
+                        <!-- <img src="{{b.image.url}}" alt=""> -->
+                        <a href="{% url 'blog' b.slug %}">
+                            <h3 class="review-title">{{b.title}}</h3>
+                        </a>
+                        <div class="text">{{b.short_description}}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!--Sponsors Section-->
+<section class="sponsors-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- <div class="title-column col-lg-3 col-md-12 col-xs-12">
+                <a style="color: white;" target="_blank" href="{% static 'website/images/information/all huda brochure Final.pdf' %}"><h2>Download Broacher</h2></a>
+            </div>
+            <div class="sponsors-column col-lg-9 col-md-12 col-xs-12">
+                
+            </div>
+            <div class="title-column col-lg-3 col-md-12 col-xs-12">
+                <a style="color: white;" target="_blank" href="{% static 'website/images/information/Booking form.pdf' %}"><h2>Download Booking Form</h2></a>
+            </div>
+            <div class="sponsors-column col-lg-9 col-md-12 col-xs-12">
+                
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<!-- Progress -->
+<section class="testimonials-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="subtitle-text">Tour Of Our Progress</div>
+            <h2><strong>Checkout</strong> Progress and Details</h2>
+        </div>
+
+        <div class="testimonials-carousel">
+            {% for b in data.progress %}
+
+            <!--Slide Item-->
+            <div class="slide-item" >
+                <div class="inner-box">
+                    <div class="quote-icon"><span class="fa fa-quote-right"></span></div>
+                    <div class="content">
+                        <img src="{{b.image.url}}" alt="">
+                        <br>
+                        <!-- <div class="info clearfix">
+                            <div class="author-thumb">
+                            </div>
+                            <div class="author-title">_________________________________</div>
+                        </div> -->
+                        <!-- <img src="{{b.image.url}}" alt=""> -->
+                        <a href="{% url 'prog' b.slug %}">
+                            <h3 class="review-title">{{b.title}}</h3>
+                        </a>
+                        <div class="text">{{b.short_description}}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!--Sponsors Section-->
+<section class="sponsors-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="title-column col-lg-3 col-md-12 col-xs-12">
+                <a style="color: white;" target="_blank" href="{% static 'website/images/information/all huda brochure Final.pdf' %}"><h2>Download Broacher</h2></a>
+            </div>
+            <div class="sponsors-column col-lg-9 col-md-12 col-xs-12">
+                
+            </div>
+            <div class="title-column col-lg-3 col-md-12 col-xs-12">
+                <a style="color: white;" target="_blank" href="{% static 'website/images/information/Booking form.pdf' %}"><h2>Download Booking Form</h2></a>
+            </div>
+            <div class="sponsors-column col-lg-9 col-md-12 col-xs-12">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %}
+<section class="testimonials-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="subtitle-text">Tour Of Our Reviews</div>
+            <h2><strong>Checkout</strong> Clients Reviews</h2>
+        </div>
+
+        <div class="testimonials-carousel">
+            {% for r in data.review %}
+
+            <!--Slide Item-->
+            <div class="slide-item">
+                <div class="inner-box">
+                    <div class="quote-icon"><span class="fa fa-quote-right"></span></div>
+                    <div class="content">
+                        <h3 class="review-title">{{r.title}}</h3>
+                        <div class="text">{{r.message}}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+        <br><br>
+        <a href="{% url 'review' %}" class="theme-btn btn-style-three">Review Us</a>
+    </div>
+</section>
+{% endcomment %}
+
+
+<!--Contact Section-->
+<section class="contact-section" style="background-image:url(images/background/image-2.jpg);">
+    <div class="auto-container">
+        <div class="outer-box">
+            <div class="row clearfix">
+
+                <!--Agent Column-->
+                <div class="agent-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="inner-box">
+                        <!--Basic Info-->
+                        <div class="basic-info">
+                            <!-- <figure class="author-thumb"><img src="{% static 'website/images/logo/logo12.jpeg'%}"
+                                    alt="">
+                            </figure>
+                            <h3>Ali Asif</h3>
+                            <div class="desgination">Real Estate Group</div>
+                            <div class="social-links">
+                                <a href="#"><span class="fa fa-facebook-f"></span></a>
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                <a href="#"><span class="fa fa-linkedin"></span></a>
+                                <a href="#"><span class="fa fa-instagram"></span></a>
+                                <a href="#"><span class="fa fa-google-plus"></span></a>
+                            </div> -->
+                        </div>
+
+                        <div class="row clearfix">
+                            <!--Info BLock-->
+                            <div class="col-md-12 col-xs-12">
+                                <div class="info-block"><strong>Address:</strong>
+                                    <div class="trxt">Adjacent WAPDA Housing Society, Opposite FC Colony New Hanna Bypass, Quetta
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Info BLock-->
+                            <div class="col-md-6 col-xs-12">
+                                <div class="info-block"><strong>Phone:</strong>
+                                    <div class="trxt">03126622226, 0301-2270333, 0302-2270333</div>
+                                </div>
+                            </div>
+                            <!--Info BLock-->
+                            <div class="col-md-6 col-xs-12">
+                                <div class="info-block"><strong>Email:</strong>
+                                    <div class="trxt">info@alhudaresidencia.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Contact Now</a>
+
+                    </div>
+                </div>
+
+                <!--Form Column-->
+                <div class="form-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="inner-box">
+                        <h2><strong>Online</strong> Booking Request</h2>
+                        <div class="desc-text">Would you like to speak to one of our financial advisers over the
+                            phone? Just submit your details and we’ll be in touch shortly. </div>
+
+                        <div class="default-form">
+                            <form method="post" action="{% url 'booking-add' %}">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="text" name="fullname" value="" placeholder="Your Full Name"
+                                                required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" value="" placeholder="Your Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" value="" placeholder="Phone No" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <!-- <label for="Property">Property</label> -->
+                                            <select name="property">
+                                                <option class="form-control" value="0">Select a Property</option>
+                                                <option class="form-control" value="appartment">Appartment</option>
+                                                <option class="form-control" value="commercial">Commercial</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Your Message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-right"><button type="submit" class="theme-btn btn-style-one">Send a
+                                        Booking Request</button></div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{%include 'website/include/footer.html'%}

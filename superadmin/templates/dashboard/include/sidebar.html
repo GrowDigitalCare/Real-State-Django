@@ -1,0 +1,77 @@
+{%load static %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a href="#" class="nav-link">
+        <div class="profile-image">
+          <img class="img-xs rounded-circle" src="{% static 'dashboard/images/faces/face8.jpg' %}" alt="profile image">
+          <div class="dot-indicator bg-success"></div>
+        </div>
+        <div class="text-wrapper">
+          <p class="profile-name">{{username}}</p>
+        </div>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dashboard' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'category' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Categories</span>
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'project' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Project</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'progress' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Progress</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'masterplan' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Master Plan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'blogview' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Blog</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'slider' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Slider</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contactinfo' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Contact Info</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'booking' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Booking</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'customerreview' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">Customer Review</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,235 @@
+{%load static %}
+{%include 'dashboard/include/layout.html'%}
+
+<!-- partial:partials/_navbar.html -->
+{%include 'dashboard/include/navbar.html'%}
+<!-- partial -->
+<div class="container-fluid page-body-wrapper">
+  <!-- partial:partials/_sidebar.html -->
+  {%include 'dashboard/include/sidebar.html'%}
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row page-title-header">
+        <div class="col-12">
+          <div class="page-header">
+            <h4 class="page-title">Contact Info</h4>
+            <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div style="overflow-x: scroll;" class="card-body">
+              <h4 class="card-title">Contact Info Details</h4>
+              <table id="" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th> # </th>
+                    <th> Title </th>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Short Description </th>
+                    <th> Message </th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for v in data.items%}
+                  <tr>
+                    <td> {{forloop.counter}} </td>
+                    <td> {{v.title}} </td>
+                    <td> {{v.name}} </td>
+                    <td> {{v.email}} </td>
+                    <td> {{v.short_description}} </td>
+                    <td> {{v.message}} </td>
+                    {% comment %}
+                    <td> <img src="{{v.image.url}}" alt=""> </td>{% endcomment %}
+                    <td>
+                      <i style="cursor: pointer; color: green; font-size: large;" class="mdi mdi-pencil"
+                        data-toggle="modal" data-target="#updateModal{{v.id}}"></i>
+                      <i style="cursor: pointer; color: red;font-size: large;" class="mdi mdi-delete"
+                        data-toggle="modal" data-target="#delModel{{v.id}}"></i>
+
+                      <!-- Edit Modal -->
+
+                      <div class="modal fade" id="updateModal{{v.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Update Contact Info</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form method="POST" action="{% url 'contact-update' v.slug %}" class="forms-sample"
+                              enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="form-group row">
+                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Title</label>
+                                <div class="col-sm-9">
+                                  <input name="title" type="text" value="{{v.title}}" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Enter Title">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Name</label>
+                                <div class="col-sm-9">
+                                  <input name="name" type="text" value="{{v.name}}" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Enter name">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                  <input name="email" type="text" value="{{v.email}}" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Enter email">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Short Description</label>
+                                <div class="col-sm-9">
+                                  <input name="short_description" value="{{v.short_description}}" type="text" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Enter Short Description">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Message</label>
+                                <div class="col-sm-9">
+                                  <input name="message" value="{{v.message}}" type="text" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Enter Long Description">
+                                </div>
+                              </div>
+                                  {% comment %}<img src="{{v.image.url}}" alt="">{% endcomment %}
+                              <br>
+                              <br>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Delete Modal -->
+
+                      <div class="modal fade" id="delModel{{v.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Delete Contact Info</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>You Sure Want to Delete this?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <form action="{% url 'contact-delete' v.slug %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </form>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                    </td>
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Modal -->
+
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Contact Info</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="stretch-card">
+              <div style="border: none;" class="card">
+                <div class="card-body">
+                  <form method="POST" action="{% url 'contact-add' %}" class="forms-sample"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Title</label>
+                      <div class="col-sm-9">
+                        <input name="title" type="text" class="form-control" id="exampleInputEmail2"
+                          placeholder="Enter Title">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Name</label>
+                      <div class="col-sm-9">
+                        <input name="name" type="text" class="form-control" id="exampleInputEmail2"
+                          placeholder="Enter Name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                      <div class="col-sm-9">
+                        <input name="email" type="text" class="form-control" id="exampleInputEmail2"
+                          placeholder="Enter Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Short Description</label>
+                      <div class="col-sm-9">
+                        <input name="short_description" type="text" class="form-control" id="exampleInputEmail2"
+                          placeholder="Enter Short Description">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Message</label>
+                      <div class="col-sm-9">
+                        <input name="message" type="text" class="form-control" id="exampleInputEmail2"
+                          placeholder="Enter Message">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Image</label>
+                      <div class="col-sm-9">
+                        <input type="file" name="image" class="form-control" id="exampleInputPassword2">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    {%include 'dashboard/include/footer.html'%}

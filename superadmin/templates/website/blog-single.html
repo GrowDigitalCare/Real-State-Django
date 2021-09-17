@@ -1,0 +1,252 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+    
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(../../static/website/images/background/bg-page-title.jpg);">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Title -->
+            	<div class="title-column col-md-7 col-sm-6 col-xs-12">
+                	<h1>Amenities Single</h1>
+                </div>
+                <!--Bread Crumb -->
+                <div class="breadcrumb-column col-md-5 col-sm-6 col-xs-12">
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Amenities Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--Sidebar Page-->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                
+                
+                <!--Content Side-->	
+                <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12 padd-right-50">
+                    
+                    <!--Blog Section / Classic View-->
+                    <section class="blog-news-section classic-view blog-detail no-padd-bottom no-padd-top">
+                        
+                        <!--BLog News Column-->
+                        <div class="blog-news-column">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="#"><img src="{{data.items.image.url}}" alt=""></a></figure>
+                                <div class="post-content">
+                                    <!-- <div class="post-tags"><a href="#">Rent</a> / <a href="#">Agents</a> / <a href="#">Family</a></div> -->
+                                    <h3><a href="{% url 'blog' data.items.slug %}">{{data.items.title}} </a></h3>
+                                    <div class="text">
+                                    	<p>{{data.items.short_description}}</p>
+                                        
+                                        <!--Two Column-->
+                                        <div class="two-column">
+                                        	<div class="row clearfix">
+                                                <div class="column text-column col-sm-6 col-xs-12">
+                                                	<p id="encodeEditor">{{data.items.long_description | safe}}</p>
+                                                </div>
+                                            	<div class="column image-column col-sm-6 col-xs-12">
+                                                	<figure class="image"><img src="{{data.items.image.url}}" alt=""></figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- <p>Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magniol voluptatem sequi nesciunt  Neque porro quisquam est qui dolorem ipsum quia dolore sit amet con sectetur adipisci quia suthagara lukuthea satham non numquam eius modi tempra.</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </section>
+                    
+                    {{share_string}}
+                    <!--Author Info-->
+                    <div class="author-box">
+                    	<!-- <div class="inner"> -->
+                        	<!-- <figure class="image"><img src="images/resource/agent-thumb-2.jpg" alt=""></figure> -->
+                            <h3>Share using</h3>
+                            <div class="text">It's time to dress up right. It's time to raise the curtain on the Muppet Show tonight. Texas tea. Were gonna do it. Give us any chance well take it. Give us any rule we'll break it. We're gonna make our dreams come true. </div>
+                            <div class="social-links">
+                                <a target="__blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><span class="fa fa-facebook-f">
+                                </span></a>
+                                <a target="__blank" href="https://twitter.com/home?status={{data.share_string}}%20{{ request.build_absolute_uri }}"><span class="fa fa-twitter"></span></a>
+                                <!-- <a href="#"><span class="fa fa-google-plus"></span></a> -->
+                                <a target="__blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{data.share_string}}&summary={{data.share_string_desc}}&source={{ request.build_absolute_uri }}"><span class="fa fa-linkedin"></span></a>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                    {% comment %}
+                    
+                    
+                    <!--Comments Area-->
+                    <div class="comments-area">
+                        <div class="group-title"><h2>03 Comments</h2></div>
+                        
+                        <div class="comment-box">
+                            <div class="comment">
+                                <div class="author-thumb"><img src="images/resource/blog-thumb.jpg" alt=""></div>
+                                <div class="comment-info clearfix"><strong>Chris Evans</strong><div class="comment-time">21 May, 2016</div></div>
+                                <div class="text">Sometimes you want to go where everybody knows your name. And they always glad you came. Then one day he was shootin' at some food and up bubblin' crude. </div>
+                                <a class="theme-btn btn-style-two" href="#">Reply</a>
+                            </div>
+                        </div>
+                        
+                        <div class="comment-box reply-comment">
+                            <div class="comment">
+                                <div class="author-thumb"><img src="images/resource/blog-thumb.jpg" alt=""></div>
+                                <div class="comment-info clearfix"><strong>martin luther</strong><div class="comment-time">20 May, 2016</div></div>
+                                <div class="text">These are the voyages of the Starship Enterprise. All of them had hair of gold like their mother the youngest one in curls.</div>
+                                <a class="theme-btn btn-style-two" href="#">Reply</a>
+                            </div>
+                        </div>
+                        
+                         <div class="comment-box">
+                            <div class="comment">
+                                <div class="author-thumb"><img src="images/resource/blog-thumb.jpg" alt=""></div>
+                                <div class="comment-info clearfix"><strong>handry cavill</strong><div class="comment-time">19 May, 2016</div></div>
+                                <div class="text">These men promptly escaped from a maximum security stockade the Los Angeles underground. One two three four five six seven eight.</div>
+                                <a class="theme-btn btn-style-two" href="#">Reply</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Comment Form -->
+                    <div class="comment-form wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                            
+                        <div class="group-title"><h2>Leave Your Comments</h2></div>
+                        
+                        <!--Comment Form-->
+                        <form method="post" action="http://world5.commonsupport.com/html2/tyche-property/blog.html">
+                            <div class="row clearfix">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <input type="text" name="username" placeholder="Your Name">
+                                </div>
+                                
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <input type="email" name="email" placeholder="Your Email">
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <textarea name="message" placeholder="Your Comments"></textarea>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">Post Comment</button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                            
+                    </div><!--End Comment Form --> 
+
+                    {% endcomment %}
+                
+                    
+                </div>
+                <!--Content Side-->
+                
+                <!--Sidebar-->	
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <aside class="sidebar">
+                    
+                        <!-- Search Form -->
+                        <div class="sidebar-widget search-box">
+                            
+                        </div>
+                        
+                        
+                        <!-- Recent Articles -->
+                        <div class="sidebar-widget recent-articles wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="sidebar-title"><h2>Categories</h2></div>
+                            
+                            <ul class="list">
+                                {% for c in category %}
+                                <li><a href="{% url 'category-detail' c.slug %}">{{c.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                            
+                        </div>
+                        
+                        {% comment %}
+                        <!-- Popular Posts -->
+                        <div class="sidebar-widget popular-posts wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="sidebar-title"><h2>Recent Posts</h2></div>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-1.jpg" alt=""></a></figure>
+                                <h4><a href="#">A Mortgage In Your 50s</a></h4>
+                                <div class="post-info">May 20, 2016 </div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-2.jpg" alt=""></a></figure>
+                                <h4><a href="#">House Market Indicators</a></h4>
+                                <div class="post-info">May 18, 2016 </div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="#"><img src="images/resource/post-thumb-3.jpg" alt=""></a></figure>
+                                <h4><a href="#">Is Condo Life For You?</a></h4>
+                                <div class="post-info">May 16, 2016 </div>
+                            </article>
+                            
+                            
+                        </div>
+                        
+                        <!-- Popular Tags -->
+                        <div class="sidebar-widget popular-tags">
+                            <div class="sidebar-title"><h2>Popular tags</h2></div>
+                            
+                            <a href="#">Hostel</a>
+                            <a href="#">House</a>
+                            <a href="#">Rent</a>
+                            <a href="#">School</a>
+                            <a href="#">Commercial</a>
+                            <a href="#">Community</a>
+                        </div>
+                        
+                        {% endcomment %}
+                        
+                    </aside>
+                
+                    
+                </div>
+                <!--Sidebar-->  
+                <section class="recommended-posts">
+                    <div class="row clearfix">
+                        <!--Post-->
+                        {% for img in data.itemsimg %}
+                        <div class="post default-portfolio-item col-md-4 col-sm-6 col-xs-12">
+                            <div class="inner-box wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                                <figure class="image-box"><img src="{{img.image.url}}" alt=""></figure>
+                                <br>
+                            </div>
+                        </div>
+                        {% endfor %}
+                
+                        
+                    </div>
+                </section>
+                      
+                
+            </div>
+        </div>
+    </div>
+    
+    {%include 'website/include/footer.html'%}

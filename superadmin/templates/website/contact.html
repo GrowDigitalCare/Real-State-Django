@@ -1,0 +1,112 @@
+{%include 'website/include/header.html'%}
+{%load static %}
+ 
+{% block metatagsofpage %}
+    
+<title>Al Huda Residencia - The Luxurious Apartments in Quetta</title>
+<meta charset="utf-8">
+<meta name="description" content="This page is about...">
+<meta name="keywords" content="meta keywords...">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% endblock metatagsofpage %}
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(../../static/website/images/background/bg-page-title.jpg);">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Title -->
+            	<div class="title-column col-md-7 col-sm-6 col-xs-12">
+                	<h1>Contact us</h1>
+                </div>
+                <!--Bread Crumb -->
+                <div class="breadcrumb-column col-md-5 col-sm-6 col-xs-12">
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--Contact Section-->
+    <section class="contact-form-section extended">
+        <div class="auto-container">
+        	
+            <div class="outer-box">
+            	<h2><strong>Get In</strong> Touch</h2>
+                <div class="row clearfix">
+                    
+                    <!--Agent Column-->
+                    <div class="agent-column col-md-5 col-sm-12 col-xs-12">
+                        <div class="inner-box">
+                            
+                            <!--Basic Info-->
+                            <div class="basic-info">
+                                <!-- <figure class="author-thumb"><img src="{% static 'website/images/logo/logo12.jpeg'%}" alt=""></figure>
+                                <h3>Ali Asif</h3>
+                                <div class="desgination">Real Estate Group</div>
+                                <div class="social-links">
+                                    <a href="#"><span class="fa fa-facebook-f"></span></a>
+                                    <a href="#"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                                    <a href="#"><span class="fa fa-instagram"></span></a>
+                                    <a href="#"><span class="fa fa-google-plus"></span></a>
+                                </div> -->
+                            </div>
+                            
+                            <div class="row clearfix">
+                                <!--Info BLock-->
+                                <div class="col-md-12 col-xs-12"><div class="info-block"><strong>Address:</strong><div class="trxt">Adjacent WAPDA Housing Society, Opposite FC Colony New Hanna Bypass, Quetta</div></div></div>
+                                <!--Info BLock-->
+                                <div class="col-md-6 col-xs-12"><div class="info-block"><strong>Phone:</strong><div class="trxt">03126622226, 0301-2270333, 0302-2270333</div></div></div>
+                                <!--Info BLock-->
+                                <div class="col-md-6 col-xs-12"><div class="info-block"><strong>Email:</strong><div class="trxt">info@alhudaresidencia.com</div></div></div>
+                            </div>
+                            
+                            <!-- <a href="contact.html" class="theme-btn btn-style-one">Contact Now</a> -->
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Form Column-->
+                    <div class="form-column col-md-7 col-sm-12 col-xs-12">
+                            
+                        <div class="default-form">
+                            <form method="POST" action="{% url 'contact-add' %}" id="">
+                                {% csrf_token %} 
+                                <div class="clearfix">
+                                    <div class="form-group col-md-6 col-xs-12">
+                                    	<input type="text" name="name" value="" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="form-group col-md-6 col-xs-12">
+                                    	<input type="email" name="email" value="" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="form-group col-md-12 col-xs-12">
+                                    	<input type="text" name="title" value="" placeholder="Subject" required>
+                                    </div>
+                                    <div class="form-group col-md-12 col-xs-12">
+                                    	<input type="text" name="short_description" value="" placeholder="Short Description" required>
+                                    </div>
+                                    <div class="form-group col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Your Message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-right"><button type="submit" class="theme-btn btn-style-six">Submit Now</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    {%include 'website/include/footer.html'%}
